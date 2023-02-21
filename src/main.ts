@@ -62,23 +62,33 @@ zoomBtns.forEach(function(btn, index) {
     if (imageView && imageBox) {
       imageView.style.display = "block";
       imageBox.style.display = "block";
-      currentImageIndex = index + 1;
+      currentImageIndex = index;
       currentImageDisplay(currentImageIndex);
+
+      // Add click event listener to image in imageView
+      imageView.addEventListener('click', function() {
+        imageView.style.display = "none";
+        imageBox.style.display = "none";
+      });
     }
-  })
-})
+  });
+});
 
 function currentImageDisplay(index: number): void {
-  if (imageBox) {
-    imageBox.style.background = `url(images/img${currentImageIndex}.webp) center/cover no-repeat`;
+  if (imageBox && allImages) {
+    const image = allImages[index].querySelector('img');
+    const imageUrl = image?.getAttribute('src');
+    if (imageUrl) {
+      imageBox.style.background = `url(${imageUrl}) center/cover no-repeat`;
+    }
   }
 }
 
 if (prevBtn) {
   prevBtn.addEventListener('click', function() {
     currentImageIndex--;
-    if (currentImageIndex === 0) {
-      currentImageIndex = allImages.length;
+    if (currentImageIndex < 0) {
+      currentImageIndex = allImages.length -1;
     }
     currentImageDisplay(currentImageIndex);
   });
@@ -87,25 +97,10 @@ if (prevBtn) {
 if (nextBtn) {
   nextBtn.addEventListener('click', function() {
     currentImageIndex++;
-    if (currentImageIndex === 5) {
-      currentImageIndex = 1;
+    if (currentImageIndex === allImages.length) {
+      currentImageIndex = 0;
     }
     currentImageDisplay(currentImageIndex);
   });
 }
 
-// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
-
-// <a href="https://vitejs.dev" target="_blank">
-// <img src="/vite.svg" class="logo" alt="Vite logo" />
-// </a>
-// <a href="https://www.typescriptlang.org/" target="_blank">
-// <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-// </a>
-// <h1>Vite + TypeScript</h1>
-// <div class="card">
-// <button id="counter" type="button"></button>
-// </div>
-// <p class="read-the-docs">
-// Click on the Vite and TypeScript logos to learn more
-// </p>
