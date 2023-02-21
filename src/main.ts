@@ -4,79 +4,40 @@ import images from './imgArray';
 // import typescriptLogo from './typescript.svg'
 // import { setupCounter } from './counter'
 
+const container = `
+  <div class="container">
+    ${images.map(image => `
+      <article>
+        <div class="img-container">
+          <img src="${image.url}" alt="${image.alt}">
+          <div class="content">
+            <div class="zoom-text">
+              Click
+            </div>
+            <h2>${image.title}</h2>
+          </div>
+        </div>
+      </article>
+    `).join('')}
+  </div>
+`;
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <nav>some navigation</nav>
+  <div>
+    <h1>jennys fotosida</h1>
     <div>
-      <h1>jennys fotosida</h1>
-      <div>
-        <p> gillar att fota
-        </p>
-      </div>
-
-        <div class="container">
-          <article>
-            <div class = "img-container">
-              <img src = "/img/avatar_photoBy_Jenny-Waller.webp" alt = "Avatar fållan Stockholm 2022">
-              <div class = "content">
-                <div class = "zoom-text">
-                      Click
-                </div>
-                  <h2>Concert One</h2>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class = "img-container">
-              <img src = "/img/behemoth_photoBy_Jenny-Waller.webp" alt = "Behemoth Globen Stockholm 2020">
-              <div class = "content">
-                <div class = "zoom-text">
-                      Click
-                </div>
-                  <h2>Concert Two</h2>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class = "img-container">
-              <img src = "/img/gerstner_photoBy_Jenny-Waller.webp" alt = "Helloween SRF 2012">
-              <div class = "content">
-                <div class = "zoom-text">
-                      Click
-                </div>
-                  <h2>Helloween SRF 2012</h2>
-              </div>
-            </div>
-          </article>
-
-          <article>
-            <div class = "img-container">
-              <img src = "/img/ghost_photoBy_Jenny-Waller.webp" alt = "Ghost Annexet Stockholm 2019">
-              <div class = "content">
-                <div class = "zoom-text">
-                      Click
-                </div>
-                  <h2>Concert Four</h2>
-              </div>
-            </div>
-          </article>
-        </div>
-
-
-      <div class="image-view">
-      </div>
-
-      <div class = "image-box">
-        <button id = "prev-btn"></button>
-        <button id = "next-btn"></button>
-      </div>
-     
-
+      <p>gillar att fota</p>
     </div>
+    ${container}
+    <div class="image-view"></div>
+    <div class="image-box">
+      <button id="prev-btn"></button>
+      <button id="next-btn"></button>
+    </div>
+  </div>
   <footer>here's the footer</footer>
-
-    `;
+`;
 
 const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
 const allImages:NodeListOf<Element> = document.querySelectorAll('.img-container');
@@ -107,7 +68,7 @@ zoomBtns.forEach(function(btn, index) {
   })
 })
 
-function currentImageDisplay(position: number): void {
+function currentImageDisplay(index: number): void {
   if (imageBox) {
     imageBox.style.background = `url(images/img${currentImageIndex}.webp) center/cover no-repeat`;
   }
