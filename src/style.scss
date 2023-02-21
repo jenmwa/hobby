@@ -13,14 +13,30 @@
 body {
   background-color: whitesmoke;
   color: #213547;
-
   position: relative;
-
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+nav {
+  z-index: 10;
+  position: sticky;
+  width: 100%;
+  background-color: lightgrey;
+  margin-bottom: 5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    font-size: small;
+    color: darkslategray;
+  }
 }
 
 h1 {
@@ -32,6 +48,17 @@ img {
   width: 100%;
   display: block;
 }
+
+.sortSection {
+  max-width: 400px;
+  display: flex;
+
+  p {
+    margin-right: 2rem;
+  }
+}
+
+
 
 .container {
   display: grid;
@@ -162,7 +189,8 @@ button {
 
 
 footer {
-  position: relative;
+  background-color: lightgrey;
+  width: 100%;
   margin-top: 5rem;
   bottom: 0;
 }

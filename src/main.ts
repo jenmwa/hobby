@@ -15,6 +15,7 @@ const container = `
               Click
             </div>
             <h2>${image.title}</h2>
+            <p>${image.category}</p>
           </div>
         </div>
       </article>
@@ -22,14 +23,50 @@ const container = `
   </div>
 `;
 
+const nav = `
+<nav>some navigation
+  <ul>
+    <li>maybe a link</li>
+  </ul>
+</nav>
+`;
+
+const aboutSection = `
+<section>
+  <p>Jenny.</p>
+  <p>Karlstad.</p>
+  <p>Hej.</p>
+  <p>gillar att fota</p>
+</section>
+`;
+
+const sortSection = `
+  <section class="sortSection">
+    <p>sortera på:</p>
+    <p>abs</p>
+    <p>datum</p>
+    <p>kategori</p>
+  </section>
+`;
+
+const techcontainer = `
+  <section>
+    <h4>Lights, CAMERA, actions</h4>
+    <p>kamera 1:</p>
+    <p>kamera 2:</p>
+    <p>redigering:</p>
+  </section>
+`;
+
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <nav>some navigation</nav>
+  ${nav}
   <div>
     <h1>jennys fotosida</h1>
-    <div>
-      <p>gillar att fota</p>
-    </div>
+    ${aboutSection}
+    ${sortSection}
     ${container}
+    ${techcontainer}
     <div class="image-view"></div>
     <div class="image-box">
       <button id="prev-btn"></button>
