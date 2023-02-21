@@ -9,11 +9,8 @@ const container = `
     ${images.map(image => `
       <article>
         <div class="img-container">
-          <img src="${image.url}" alt="${image.alt}">
+          <img class="img" src="${image.url}" alt="${image.alt}">
           <div class="content">
-            <div class="zoom-text">
-              Click
-            </div>
             <h2>${image.title}</h2>
             <p>${image.category}</p>
           </div>
@@ -76,7 +73,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <footer>here's the footer</footer>
 `;
 
-const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
+// const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
 const allImages:NodeListOf<Element> = document.querySelectorAll('.img-container');
 const imageView: HTMLElement | null = document.querySelector('.image-view');
 const nextBtn: HTMLButtonElement | null = document.getElementById('next-btn') as HTMLButtonElement;
@@ -94,7 +91,7 @@ if (imageView) {
   });
 };
 
-zoomBtns.forEach(function(btn, index) {
+allImages.forEach(function(btn, index) {
   btn.addEventListener('click', function() {
     if (imageView && imageBox) {
       imageView.style.display = "block";
