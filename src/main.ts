@@ -1,6 +1,6 @@
 import './style.scss'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
+// import typescriptLogo from './typescript.svg'
+// import { setupCounter } from './counter'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <nav>some navigation</nav>
@@ -10,9 +10,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <p> gillar att fota
         </p>
       </div>
-     
 
-        <div class='container'>
+        <div class="container">
           <article>
             <div class = "img-container">
               <img src = "/img/avatar_photoBy_Jenny-Waller.webp" alt = "Avatar fållan Stockholm 2022">
@@ -44,7 +43,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
                 <div class = "zoom-text">
                       Click
                 </div>
-                  <h2>Concert Three</h2>
+                  <h2>Helloween SRF 2012</h2>
               </div>
             </div>
           </article>
@@ -67,17 +66,72 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
 
       <div class = "image-box">
-        <div id = "prev-btn"></div>
-        <div id = "next-btn"></div>
+        <button id = "prev-btn"></button>
+        <button id = "next-btn"></button>
       </div>
      
 
     </div>
   <footer>here's the footer</footer>
 
-    `
+    `;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
+const allImages:NodeListOf<Element> = document.querySelectorAll('.img-container');
+const imageView: HTMLElement | null = document.querySelector('.image-view');
+const nextBtn: HTMLButtonElement | null = document.getElementById('next-btn') as HTMLButtonElement;
+const prevBtn: HTMLButtonElement | null = document.getElementById('prev-btn') as HTMLButtonElement;
+const imageBox: HTMLDivElement | null= document.querySelector('.image-box');
+
+let currentImageIndex: number = 0;
+
+if (imageView) {
+  imageView.addEventListener('click', function(){
+      this.style.display = "none";
+      if (imageBox) {
+        imageBox.style.display = "none";
+      }
+  });
+};
+
+zoomBtns.forEach(function(btn, index) {
+  btn.addEventListener('click', function() {
+    if (imageView && imageBox) {
+      imageView.style.display = "block";
+      imageBox.style.display = "block";
+      currentImageIndex = index + 1;
+      currentImageDisplay(currentImageIndex);
+    }
+  })
+})
+
+function currentImageDisplay(position: number): void {
+  if (imageBox) {
+    imageBox.style.background = `url(images/img${currentImageIndex}.webp) center/cover no-repeat`;
+  }
+}
+
+if (prevBtn) {
+  prevBtn.addEventListener('click', function() {
+    currentImageIndex--;
+    if (currentImageIndex === 0) {
+      currentImageIndex = allImages.length;
+    }
+    currentImageDisplay(currentImageIndex);
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', function() {
+    currentImageIndex++;
+    if (currentImageIndex === 5) {
+      currentImageIndex = 1;
+    }
+    currentImageDisplay(currentImageIndex);
+  });
+}
+
+// setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
 
 // <a href="https://vitejs.dev" target="_blank">
 // <img src="/vite.svg" class="logo" alt="Vite logo" />

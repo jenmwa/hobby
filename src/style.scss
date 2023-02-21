@@ -89,6 +89,7 @@ img {
 * POPUP MODAL
 */
 
+
 .image-view{
   position: fixed;
   top: 0;
@@ -96,6 +97,7 @@ img {
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   width: 100%;
+  display: none;;
 }
 
 .image-box {
@@ -106,6 +108,14 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   background: black;
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 #prev-btn, #next-btn {
@@ -149,24 +159,7 @@ img {
   text-align: center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 footer {
   position: relative;
