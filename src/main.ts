@@ -61,7 +61,7 @@ const createImgPopup = `
       <button id="prev-btn"></button>
       <button id="next-btn"></button>
       <div class="image-text-container">
-    <p>som img-text hereregarding the img from array</p>
+    <p>some img-text here regarding the img from array</p>
   </div>
     </div>
   </div>
