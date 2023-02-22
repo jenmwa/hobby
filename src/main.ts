@@ -100,6 +100,19 @@ if (imageView) {
   });
 };
 
+function closeImagePopup() {
+  if (imageView?.style.display === "block" && imageBox) {
+    imageView.style.display = "none";
+    imageBox.style.display = "none";
+  }
+}
+
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'Escape') {
+    closeImagePopup();
+  }
+});
+
 allImages.forEach(function(btn, index) {
   btn.addEventListener('click', function() {
     if (imageView && imageBox) {
