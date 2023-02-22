@@ -23,10 +23,12 @@ body {
 
 nav {
   z-index: 10;
-  position: sticky;
+  position: fixed;
+  top:0;
+  left:0;
   width: 100%;
   background-color: lightgrey;
-  margin-bottom: 5rem;
+
 }
 
 ul {
@@ -42,6 +44,7 @@ ul {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: 5rem;
 }
 
 img {
@@ -58,6 +61,11 @@ img {
   }
 }
 
+.tech-container {
+  background-color: #21354711;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
 
 
 .container {
@@ -92,27 +100,10 @@ img {
 
 }
 
-.zoom-text {
-  width: 80px;
-  height: 80px;
-  background: black;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  transition: transform 0.7s linear;
-}
-
 .content h2 {
   padding: 15px 0;
 }
 
-.zoom-text:hover {
-  cursor: zoom-in;
-  transform: scale(1.1)
-}
 
 /*
 * POPUP MODAL
@@ -126,7 +117,7 @@ img {
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   width: 100%;
-  display: none;;
+  display: none;
 }
 
 .image-box {
@@ -138,6 +129,20 @@ img {
   transform: translate(-50%, -50%);
   background: black;
   display: none;
+}
+
+.image-text-container {
+  background-color: black;
+  width: 100%;
+  position: absolute;
+  bottom: -3.5rem;
+  text-align: left;
+
+  p {
+    padding: 0.5rem;
+    margin:0;
+
+  }
 }
 
 button {
@@ -193,7 +198,7 @@ button {
 footer {
   background-color: lightgrey;
   width: 100%;
-  margin-top: 5rem;
+
   bottom: 0;
 }
 

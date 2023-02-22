@@ -9,10 +9,10 @@ const container = `
     ${images.map(image => `
       <article>
         <div class="img-container">
-          <img class="img" src="${image.url}" alt="${image.alt}">
+          <img class="img" src="${image.url}" alt="${image.alt}" width="300">
           <div class="content">
             <h2>${image.title}</h2>
-            <p>${image.category}</p>
+            <p>#${image.category}</p>
           </div>
         </div>
       </article>
@@ -40,14 +40,14 @@ const aboutSection = `
 const sortSection = `
   <section class="sortSection">
     <p>sortera på:</p>
-    <p>abs</p>
+    <p>abc</p>
     <p>datum</p>
     <p>kategori</p>
   </section>
 `;
 
 const techcontainer = `
-  <section>
+  <section class="tech-container">
     <h4>Lights, CAMERA, actions</h4>
     <p>kamera 1:</p>
     <p>kamera 2:</p>
@@ -55,23 +55,34 @@ const techcontainer = `
   </section>
 `;
 
+const createImgPopup = `
+<div class="image-view"></div>
+    <div class="image-box">
+      <button id="prev-btn"></button>
+      <button id="next-btn"></button>
+      <div class="image-text-container">
+    <p>som img-text hereregarding the img from array</p>
+  </div>
+    </div>
+  </div>
+
+`;
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${nav}
   <div>
-    <h1>jennys fotosida</h1>
+    <h1>jennys foton</h1>
     ${aboutSection}
     ${sortSection}
     ${container}
+    ${createImgPopup}
     ${techcontainer}
-    <div class="image-view"></div>
-    <div class="image-box">
-      <button id="prev-btn"></button>
-      <button id="next-btn"></button>
-    </div>
-  </div>
+
   <footer>here's the footer</footer>
 `;
+
+
 
 // const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
 const allImages:NodeListOf<Element> = document.querySelectorAll('.img-container');
