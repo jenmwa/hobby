@@ -23,6 +23,7 @@ const nav = `
 <nav>some navigation
   <ul>
     <li>maybe a link</li>
+    <li>maybe two?</li>
   </ul>
 </nav>
 `;
