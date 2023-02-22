@@ -56,17 +56,14 @@ const techcontainer = `
 `;
 
 const createImgPopup = `
-<div class="image-view">
+  <div class="image-view"></div>
     <div class="image-box">
       <button id="prev-btn"></button>
       <button id="next-btn"></button>
       <div class="image-text-container">
-    <p>som img-text hereregarding the img from array</p>
-  </div>
+        <p>som img-text hereregarding the img from array</p>
     </div>
   </div>
-  </div>
-
 `;
 
 
@@ -131,7 +128,7 @@ function currentImageDisplay(index: number): void {
 }
 
 if (prevBtn) {
-  prevBtn.addEventListener('keyup', function() {
+  prevBtn.addEventListener('click', function() {
     currentImageIndex--;
     if (currentImageIndex < 0) {
       currentImageIndex = allImages.length -1;
@@ -141,7 +138,7 @@ if (prevBtn) {
 }
 
 if (nextBtn) {
-  nextBtn.addEventListener('keyup', function() {
+  nextBtn.addEventListener('click', function() {
     currentImageIndex++;
     if (currentImageIndex === allImages.length) {
       currentImageIndex = 0;
