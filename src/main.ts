@@ -1,9 +1,6 @@
 import './style.scss';
 import images from './imgArray';
 
-// import typescriptLogo from './typescript.svg'
-// import { setupCounter } from './counter'
-
 const container = `
   <div class="container">
     ${images.map(image => `
@@ -85,75 +82,67 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 
 // const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
-const allImages:NodeListOf<Element> = document.querySelectorAll('.img-container');
-const imageView: HTMLElement | null = document.querySelector('.image-view');
 const nextBtn: HTMLButtonElement | null = document.getElementById('next-btn') as HTMLButtonElement;
 const prevBtn: HTMLButtonElement | null = document.getElementById('prev-btn') as HTMLButtonElement;
-const imageBox: HTMLDivElement | null= document.querySelector('.image-box');
 
-let currentImageIndex: number = 0;
+const allImages = document.querySelectorAll<HTMLButtonElement>('.img-container');
+const imageView: HTMLElement | null = document.querySelector('.image-view');
+const imageBox: HTMLElement | null = document.querySelector('.image-box');
+let currentImageIndex = 0;
 
-if (imageView) {
-  imageView.addEventListener('click', function(){
-      this.style.display = "none";
-      if (imageBox) {
-        imageBox.style.display = "none";
-      }
-  });
-};
+function openImagePopup(index: number) {
+  if (imageView && imageBox) {
+    imageView.style.display = 'block';
+    imageBox.style.display = 'block';
+    currentImageIndex = index;
+    currentImageDisplay(currentImageIndex);
+    addTabIndexToImageContainers();
+    imageView.addEventListener('click', closeImagePopup);
+    window.addEventListener('keyup', handlePopupEscapeBtn);
+  }
+}
 
-function closeImagePopup() {
-  if (imageView?.style.display === "block" && imageBox) {
-    imageView.style.display = "none";
-    imageBox.style.display = "none";
-    
-    // Remove tabindex=-1 from all img-container elements
+function addTabIndexToImageContainers() {
+  if (imageView && imageBox) {
     allImages.forEach((imgContainer) => {
-      imgContainer.removeAttribute("tabindex");
+      if (imageView.style.display === 'block') {
+        imgContainer.setAttribute('tabindex', '-1');
+      } else {
+        imgContainer.removeAttribute('tabindex');
+      }
     });
   }
 }
 
-popupEscapeBtnClose();
+function closeImagePopup() {
+  if (imageView && imageBox) {
+    imageView.style.display = 'none';
+    imageBox.style.display = 'none';
+    removeTabIndexFromImageContainers();
+    imageView.removeEventListener('click', closeImagePopup);
+    window.removeEventListener('keyup', handlePopupEscapeBtn);
+  }
+}
 
-allImages.forEach(function(btn, index) {
-  btn.addEventListener('click', function() {
+function removeTabIndexFromImageContainers() {
+  allImages.forEach((imgContainer) => {
+    imgContainer.removeAttribute('tabindex');
+  });
+}
+
+function handlePopupEscapeBtn(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    closeImagePopup();
+  }
+}
+
+allImages.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
     if (imageView && imageBox) {
-      imageView.style.display = "block";
-      imageBox.style.display = "block";
-      currentImageIndex = index;
-      currentImageDisplay(currentImageIndex);
-      
-      // Add tabindex=-1 to all img-container elements
-      allImages.forEach((imgContainer) => {
-        if (imageView.style.display === "block") {
-          imgContainer.setAttribute("tabindex", "-1");
-        } else {
-          imgContainer.removeAttribute("tabindex");
-        }
-      });
-
-      // Add click event listener to image in imageView
-      imageView.addEventListener('click', function() {
-        imageView.style.display = "none";
-        imageBox.style.display = "none";
-        
-        // Remove tabindex=-1 from all img-container elements
-        allImages.forEach((imgContainer) => {
-          imgContainer.removeAttribute("tabindex");
-        });
-      });
+      openImagePopup(index);
     }
   });
 });
-
-function popupEscapeBtnClose() {
-  window.addEventListener('keyup', (e) => {
-    if (e.key === 'Escape') {
-      closeImagePopup();
-    }
-  });
-}
 
 function currentImageDisplay(index: number): void {
   if (imageBox && allImages) {
