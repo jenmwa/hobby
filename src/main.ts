@@ -8,13 +8,13 @@ const container = `
   <div class="container">
     ${images.map(image => `
       <article>
-        <div class="img-container">
+        <button class="img-container">
           <img class="img" src="${image.url}" alt="${image.alt}" width="300">
           <div class="content">
             <h2>${image.title}</h2>
             <p>#${image.category}</p>
           </div>
-        </div>
+        </button>
       </article>
     `).join('')}
   </div>
@@ -56,7 +56,7 @@ const techcontainer = `
 `;
 
 const createImgPopup = `
-<div class="image-view"></div>
+  <div class="image-view"></div>
     <div class="image-box">
       <button id="prev-btn"></button>
       <button id="next-btn"></button>
