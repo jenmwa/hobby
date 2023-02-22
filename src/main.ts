@@ -8,13 +8,13 @@ const container = `
   <div class="container">
     ${images.map(image => `
       <article>
-        <div class="img-container">
+        <button class="img-container">
           <img class="img" src="${image.url}" alt="${image.alt}" width="300">
           <div class="content">
             <h2>${image.title}</h2>
             <p>#${image.category}</p>
           </div>
-        </div>
+        </button>
       </article>
     `).join('')}
   </div>
@@ -56,7 +56,7 @@ const techcontainer = `
 `;
 
 const createImgPopup = `
-<div class="image-view"></div>
+<div class="image-view">
     <div class="image-box">
       <button id="prev-btn"></button>
       <button id="next-btn"></button>
@@ -64,6 +64,7 @@ const createImgPopup = `
     <p>som img-text hereregarding the img from array</p>
   </div>
     </div>
+  </div>
   </div>
 
 `;
@@ -130,7 +131,7 @@ function currentImageDisplay(index: number): void {
 }
 
 if (prevBtn) {
-  prevBtn.addEventListener('click', function() {
+  prevBtn.addEventListener('keyup', function() {
     currentImageIndex--;
     if (currentImageIndex < 0) {
       currentImageIndex = allImages.length -1;
@@ -140,7 +141,7 @@ if (prevBtn) {
 }
 
 if (nextBtn) {
-  nextBtn.addEventListener('click', function() {
+  nextBtn.addEventListener('keyup', function() {
     currentImageIndex++;
     if (currentImageIndex === allImages.length) {
       currentImageIndex = 0;
