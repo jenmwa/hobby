@@ -104,14 +104,15 @@ function closeImagePopup() {
   if (imageView?.style.display === "block" && imageBox) {
     imageView.style.display = "none";
     imageBox.style.display = "none";
+    
+    // Remove tabindex=-1 from all img-container elements
+    allImages.forEach((imgContainer) => {
+      imgContainer.removeAttribute("tabindex");
+    });
   }
 }
 
-window.addEventListener('keyup', (e) => {
-  if (e.key === 'Escape') {
-    closeImagePopup();
-  }
-});
+popupEscapeBtnClose();
 
 allImages.forEach(function(btn, index) {
   btn.addEventListener('click', function() {
@@ -120,15 +121,37 @@ allImages.forEach(function(btn, index) {
       imageBox.style.display = "block";
       currentImageIndex = index;
       currentImageDisplay(currentImageIndex);
+      
+      // Add tabindex=-1 to all img-container elements
+      allImages.forEach((imgContainer) => {
+        if (imageView.style.display === "block") {
+          imgContainer.setAttribute("tabindex", "-1");
+        } else {
+          imgContainer.removeAttribute("tabindex");
+        }
+      });
 
       // Add click event listener to image in imageView
       imageView.addEventListener('click', function() {
         imageView.style.display = "none";
         imageBox.style.display = "none";
+        
+        // Remove tabindex=-1 from all img-container elements
+        allImages.forEach((imgContainer) => {
+          imgContainer.removeAttribute("tabindex");
+        });
       });
     }
   });
 });
+
+function popupEscapeBtnClose() {
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+      closeImagePopup();
+    }
+  });
+}
 
 function currentImageDisplay(index: number): void {
   if (imageBox && allImages) {
