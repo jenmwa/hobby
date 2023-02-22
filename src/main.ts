@@ -1,9 +1,12 @@
 import './style.scss';
 import images from './imgArray';
 
-const container = `
-  <div class="container">
-    ${images.map(image => `
+let imgSection = '';
+
+for (let i = 0; i < images.length; i++) {
+  const image = images[i];
+  
+  imgSection += `
       <article>
         <button class="img-container">
           <img class="img" src="${image.url}" alt="${image.alt}" width="300">
@@ -13,9 +16,8 @@ const container = `
           </div>
         </button>
       </article>
-    `).join('')}
-  </div>
-`;
+  `;
+}
 
 const nav = `
 <nav>some navigation
@@ -52,19 +54,23 @@ const techcontainer = `
   </section>
 `;
 
-const createImgPopup = `
+
+let createImgPopup = '';
+
+for (let i = 0; i < images.length; i++) {
+  const imgtext = images[i];
+createImgPopup += `
   <div class="image-view"></div>
     <div class="image-box">
       <button id="prev-btn"></button>
       <button id="next-btn"></button>
       <div class="image-text-container">
-    <p>some img-text here regarding the img from array</p>
+    <p>${imgtext.imgText}</p>
   </div>
     </div>
   </div>
-
 `;
-
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${nav}
@@ -72,14 +78,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>jennys foton</h1>
     ${aboutSection}
     ${sortSection}
-    ${container}
+    <div class="container">
+      ${imgSection}
+    </div>
     ${createImgPopup}
     ${techcontainer}
 
   <footer>here's the footer</footer>
 `;
-
-
 
 // const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
 const nextBtn: HTMLButtonElement | null = document.getElementById('next-btn') as HTMLButtonElement;
@@ -88,6 +94,7 @@ const prevBtn: HTMLButtonElement | null = document.getElementById('prev-btn') as
 const allImages = document.querySelectorAll<HTMLButtonElement>('.img-container');
 const imageView: HTMLElement | null = document.querySelector('.image-view');
 const imageBox: HTMLElement | null = document.querySelector('.image-box');
+
 let currentImageIndex = 0;
 
 function openImagePopup(index: number) {
@@ -144,12 +151,24 @@ allImages.forEach((btn, index) => {
   });
 });
 
+function updateImgText(index: number): void {
+  let currentImgText = '';
+  if (allImages) {
+    currentImgText = images[index].imgText;
+    const imgTextContainer = document.querySelector('.image-text-container');
+    if (imgTextContainer) {
+      imgTextContainer.innerHTML = `<p>${currentImgText}</p>`;
+    }
+  }
+}
+
 function currentImageDisplay(index: number): void {
   if (imageBox && allImages) {
     const image = allImages[index].querySelector('img');
     const imageUrl = image?.getAttribute('src');
     if (imageUrl) {
       imageBox.style.background = `url(${imageUrl}) center/cover no-repeat`;
+      updateImgText(index);
     }
   }
 }
