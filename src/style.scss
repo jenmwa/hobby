@@ -121,7 +121,7 @@ img {
 }
 
 .image-box {
-  width: 90vw;
+  width: 70vw;
   height: 30vh;
   position: fixed;
   top:50%;
@@ -172,7 +172,7 @@ button {
 
 #prev-btn {
   border-right: 40px solid whitesmoke;
-  left: 5px;
+  left: -50px;
   box-shadow: 5px 0px 0px black;
 
 
@@ -180,7 +180,7 @@ button {
 
 #next-btn {
   border-left: 40px solid whitesmoke;
-  right: 5px;
+  right: -50px;
   box-shadow: -5px 0px 0px black;
 
 }
@@ -224,30 +224,30 @@ footer {
     height: 40vh;
   }
 
-  // #prev-btn, #next-btn {
-  //   width: 0;
-  //   height: 0;
-  //   border-top: 20px solid transparent;
-  //   border-bottom: 20px solid transparent;
-  //   position: absolute;
-  //   top: 50%;
-  //   transform: translateY(-50%);
-  //   transition: all 0.5s ease;
-  //   cursor: pointer;
+  #prev-btn, #next-btn {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    cursor: pointer;
   
-  //   &:hover, &:active {
-  //     opacity: 0.6
-  //   }
+    &:hover, &:active {
+      opacity: 0.6
+    }
   
-  // }
+  }
   
   #prev-btn {
-    border-right: 40px solid whitesmoke;
+    border-right: 40px solid grey;
     left: -50px;
   }
   
   #next-btn {
-    border-left: 40px solid whitesmoke;
+    border-left: 40px solid grey;
     right: -50px;
   }
 
