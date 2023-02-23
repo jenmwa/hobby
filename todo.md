@@ -23,3 +23,10 @@ sortSection css (2 rader)
 
 övrigt:
 FOKUS accessory
+
+css färg-variablar
+
+STÄDA STRUKTUR main.ts
+
+
+credlist:

@@ -63,11 +63,12 @@ for (let i = 0; i < images.length; i++) {
 createImgPopup += `
   <div class="image-view"></div>
     <div class="image-box">
-      <button id="prev-btn"></button>
+      <button id="prev-btn">
+      </button>
       <button id="next-btn"></button>
       <div class="image-text-container">
-    <p>${imgtext.imgText}</p>
-  </div>
+        <p>${imgtext.imgText}</p>
+      </div>
     </div>
   </div>
 `;
