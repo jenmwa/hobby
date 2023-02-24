@@ -1,4 +1,4 @@
-import './style.scss';
+import './style/style.scss';
 import images from './imgArray';
 
 let imgSection = renderImgSection();
