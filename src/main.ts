@@ -1,23 +1,7 @@
 import './style.scss';
 import images from './imgArray';
 
-let imgSection = '';
-
-for (let i = 0; i < images.length; i++) {
-  const image = images[i];
-  
-  imgSection += `
-      <article>
-        <button class="img-container">
-          <img class="img" src="${image.url}" alt="${image.alt}" width="300">
-          <div class="content">
-            <h2>${image.title}</h2>
-            <p>#${image.category}</p>
-          </div>
-        </button>
-      </article>
-  `;
-}
+let imgSection = renderImgSection();
 
 const nav = `
 <nav>some navigation
@@ -29,11 +13,19 @@ const nav = `
 `;
 
 const aboutSection = `
-<section>
-  <p>Jenny.</p>
-  <p>Karlstad.</p>
-  <p>Hej.</p>
-  <p>gillar att fota</p>
+<section class="about-section">
+  <p class="introduction">
+    HEJ!<br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </p>
+  <p class="introduction">
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+    deserunt mollit anim id est laborum.
+  </p>
 </section>
 `;
 
@@ -98,6 +90,26 @@ const imageView: HTMLElement | null = document.querySelector('.image-view');
 const imageBox: HTMLElement | null = document.querySelector('.image-box');
 
 let currentImageIndex = 0;
+
+function renderImgSection() {
+  let imgSection = '';
+  for (let i = 0; i < images.length; i++) {
+    const image = images[i];
+
+    imgSection += `
+      <article>
+        <button class="img-container">
+          <img class="img" src="${image.url}" alt="${image.alt}" width="300">
+          <div class="content">
+            <h2>${image.title}</h2>
+            <p>#${image.category}</p>
+          </div>
+        </button>
+      </article>
+  `;
+  }
+  return imgSection;
+}
 
 function openImagePopup(index: number) {
   if (imageView && imageBox) {

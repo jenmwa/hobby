@@ -50,7 +50,15 @@ h1 {
 img {
   width: 100%;
   display: block;
+
 }
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
 
 .sortSection {
   max-width: 400px;
@@ -129,6 +137,8 @@ img {
   transform: translate(-50%, -50%);
   background: black;
   display: none;
+  // object-position: right bottom;
+
 }
 
 .image-text-container {
@@ -219,6 +229,16 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
   }
+
+  .about-section {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+
+.introduction {
+  width: 50%;
+}
 
   .image-box {
     height: 40vh;
