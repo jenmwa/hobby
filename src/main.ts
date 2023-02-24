@@ -14,27 +14,35 @@ const nav = `
 
 const aboutSection = `
 <section class="about-section">
-  <p class="introduction">
-    HEJ!<br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  </p>
-  <p class="introduction">
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-    deserunt mollit anim id est laborum.
-  </p>
+  <div class="about-upper">
+    <h1>HEJ!</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+  </div>
+    <div class="about-down">
+      <p class="introduction">
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </p>
+    </div>
+
 </section>
 `;
 
 const sortSection = `
   <section class="sortSection">
-    <p>sortera på:</p>
-    <p>abc</p>
-    <p>datum</p>
-    <p>kategori</p>
+    <div class="upper">
+      <p>sortera på:</p>
+    </div>
+    <div class="down">
+      <p>abc</p>
+      <p>datum</p>
+      <p>kategori</p>
+    <div>
   </section>
 `;
 
@@ -69,7 +77,6 @@ createImgPopup += `
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${nav}
   <div>
-    <h1>jennys foton</h1>
     ${aboutSection}
     ${sortSection}
     <div class="container">
