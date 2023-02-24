@@ -75,15 +75,27 @@ createImgPopup += `
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  ${nav}
-  <div>
+  <nav>some navigation
+    <ul>
+      <li>maybe a link</li>
+      <li>maybe two?</li>
+    </ul>
+  </nav>
+  <main>
     ${aboutSection}
     ${sortSection}
     <div class="container">
       ${imgSection}
     </div>
     ${createImgPopup}
-    ${techcontainer}
+    <section class="tech-container">
+      <h4>Lights, CAMERA, actions</h4>
+      <p>techSection</p>
+    </section>
+    <section class="tech-container">
+      <p>contactSection</p>
+    </section>
+  </main>
 
   <footer>here's the footer</footer>
 `;
