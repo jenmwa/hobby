@@ -3,15 +3,6 @@ import images from './imgArray';
 
 let imgSection = renderImgSection();
 
-const nav = `
-<nav>some navigation
-  <ul>
-    <li>maybe a link</li>
-    <li>maybe two?</li>
-  </ul>
-</nav>
-`;
-
 const aboutSection = `
 <section class="about-section">
   <div class="about-upper">
@@ -45,16 +36,6 @@ const sortSection = `
     <div>
   </section>
 `;
-
-const techcontainer = `
-  <section class="tech-container">
-    <h4>Lights, CAMERA, actions</h4>
-    <p>kamera 1:</p>
-    <p>kamera 2:</p>
-    <p>redigering:</p>
-  </section>
-`;
-
 
 let createImgPopup = '';
 
