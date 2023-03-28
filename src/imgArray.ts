@@ -8,7 +8,7 @@ interface Image {
 
   const images: Image[] = [
     {
-      url: '/img/myles-kennedy_photoBy_Jenny-Waller.webp',
+      url: '/myles-kennedy_photoBy_Jenny-Waller.webp',
       alt: 'Alter Bridge live photo by Jenny Waller',
       title: 'Alter Bridge',
       category: 'music',
