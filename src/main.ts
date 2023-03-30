@@ -19,8 +19,6 @@ const aboutSection = `
       Played around with tabindex to create a flow from gallery view to pop up modal.<br>
       Fun little project and learned a lot!<br><br>
 
-      images taken by myself from years of going everywhere and all over Sweden for live music.<br><br>
-
       </p>
     </div>
 
