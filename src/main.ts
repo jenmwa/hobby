@@ -6,36 +6,38 @@ let imgSection = renderImgSection();
 const aboutSection = `
 <section class="about-section">
   <div class="about-upper">
-    <h1>HEJ!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    <h1>WELCOME!</h1>
+      <p>To my image gallery.<br>
+      Project made in the course Work Methology for programmers at MedieInstitutet February 2023.
       </p>
   </div>
     <div class="about-down">
       <p class="introduction">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.
+      Using TypeScript, focusing on keyboard accessibility, 
+      where you can tab between the images in the gallery view, 
+      and open/close the popup modals using the keyboards enter and esc key.<br>
+      Played around with tabindex to create a flow FROM GALLERY VIEW TO POP UP MODAL.<br>
+      Fun little project and learned a lot!<br><br>
+
+
       </p>
     </div>
 
 </section>
 `;
 
-const sortSection = `
-  <section class="sortSection">
-    <div class="upper">
-      <p>sortera på:</p>
-    </div>
-    <div class="down">
-      <p>abc</p>
-      <p>datum</p>
-      <p>kategori</p>
-    <div>
-  </section>
-`;
+// const sortSection = `
+//   <section class="sortSection">
+//     <div class="upper">
+//       <p>sort by:</p>
+//     </div>
+//     <div class="down">
+//       <p>abc</p>
+//       <p>date</p>
+//       <p>category</p>
+//     <div>
+//   </section>
+// `;
 
 let createImgPopup = '';
 
@@ -56,30 +58,31 @@ createImgPopup += `
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <nav>some navigation
-    <ul>
-      <li>maybe a link</li>
-      <li>maybe two?</li>
-    </ul>
+  <nav id="navBar">this is the navigation bar
+
   </nav>
   <main>
     ${aboutSection}
-    ${sortSection}
+  
     <div class="container">
       ${imgSection}
     </div>
     ${createImgPopup}
     <section class="tech-container">
-      <h4>Lights, CAMERA, actions</h4>
-      <p>techSection</p>
+      <p>this could be the techSection</p>
     </section>
     <section class="tech-container">
-      <p>contactSection</p>
+      <p>this could be the contactSection</p>
     </section>
   </main>
 
-  <footer>here's the footer</footer>
+  <footer><a href="mailto:hej@jenwaller.se" target="_blank"> hej@jenwaller.se</footer>
 `;
+
+const navBar: HTMLElement | null = document.querySelector('#navBar');
+navBar?.addEventListener('click', function() {
+  console.log('click')
+})
 
 // const zoomBtns: NodeListOf<Element> = document.querySelectorAll('.zoom-text');
 const nextBtn: HTMLButtonElement | null = document.getElementById('next-btn') as HTMLButtonElement;
