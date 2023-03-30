@@ -1,2 +1,8 @@
 # hobby
-a small project where our git calls are in focus. Course Work Methology for programmers february 2023. A ImageGallery, focused on keyboard accessibility.  played around with tabinndex, key-eventlisteners to create a flow to show/hide images from gallery view to popup modules. 
+   Project made in the course Work Methology for programmers at MedieInstitutet February 2023.
+
+ Using TypeScript, focusing on keyboard accessibility, 
+      where you can tab between the images in the gallery view, 
+      and open/close the popup modals using the keyboards enter and esc key.<br>
+      Played around with tabindex to create a flow FROM GALLERY VIEW TO POP UP MODAL.<br>
+      Fun little project and learned a lot!<br><br>
