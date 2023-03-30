@@ -4,5 +4,6 @@
  Using TypeScript, focusing on keyboard accessibility, 
       where you can tab between the images in the gallery view, 
       and open/close the popup modals using the keyboards enter and esc key.<br>
-      Played around with tabindex to create a flow FROM GALLERY VIEW TO POP UP MODAL.<br>
+      Played around with tabindex to create a flow from gallery view to pop up modal.<br>
       Fun little project and learned a lot!<br><br>
+
