@@ -1,5 +1,6 @@
 interface Image {
     url: string;
+    urlImg1440: string;
     alt: string;
     title: string;
     category: string;
@@ -9,6 +10,7 @@ interface Image {
   const images: Image[] = [
     {
       url: 'img/myles-kennedy_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/myles-kennedy_highRes_photoBy_Jenny-Waller.webp',
       alt: 'Alter Bridge live photo by Jenny Waller',
       title: 'Alter Bridge',
       category: 'music',
@@ -16,6 +18,7 @@ interface Image {
     },
     {
       url: 'img/avatar_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/avatar_1440_photoBy_Jenny-Waller.webp',
       alt: 'Avatar live photo by Jenny Waller',
       title: 'Avatar',
       category: 'music',
@@ -23,6 +26,7 @@ interface Image {
     },
     {
       url: 'img/hank_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/hank_1440_photoBy_Jenny-Waller.webp',
       alt: 'Hank von Hell live photo by Jenny Waller',
       title: 'Hank von Hell',
       category: 'music',
@@ -30,6 +34,7 @@ interface Image {
     },
     {
       url: 'img/ghost_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/ghost_1440_photoBy_Jenny-Waller.webp',
       alt: 'Ghost live photo by Jenny Waller',
       title: 'Ghost',
       category: 'music',
@@ -37,6 +42,7 @@ interface Image {
     },
     {
       url: 'img/gerstner_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/gerstner_1440_photoBy_Jenny-Waller.webp',
       alt: 'Helloween live photo by Jenny Waller',
       title: 'Helloween',
       category: 'music',
@@ -44,6 +50,7 @@ interface Image {
     },
     {
       url: 'img/rammstein_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/rammstein_1440_photoBy_Jenny-Waller.webp',
       alt: 'Rammstein live photo by Jenny Waller',
       title: 'Rammstein',
       category: 'music',
@@ -51,6 +58,7 @@ interface Image {
     },
     {
       url: 'img/myrkur_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/myrkur_1440_photoBy_Jenny-Waller.webp',
       alt: 'Myrkur live photo by Jenny Waller',
       title: 'Myrkur',
       category: 'music',
@@ -58,6 +66,7 @@ interface Image {
     },
     {
       url: 'img/behemoth_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/behemoth_1440_photoBy_Jenny-Waller.webp',
       alt: 'Behemoth live photo by Jenny Waller',
       title: 'Behemoth',
       category: 'music',
@@ -65,6 +74,7 @@ interface Image {
     },
     {
       url: 'img/in-flames_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/in-flames_1440_photoBy_Jenny-Waller.webp',
       alt: 'In Flames live photo by Jenny Waller',
       title: 'In Flames',
       category: 'music',
@@ -72,10 +82,19 @@ interface Image {
     },
     {
       url: 'img/tobias-sammet_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/tobias-sammet_1440_photoBy_Jenny-Waller.webp',
       alt: 'Avantasia live photo by Jenny Waller',
       title: 'Avantasia',
       category: 'music',
       imgText: 'Avantasia, Sweden Rock Festival, june 2012'
+    },
+    {
+      url: 'img/helloween_photoBy_Jenny-Waller.webp',
+      urlImg1440: 'img/helloween_1440_photoBy_Jenny-Waller.webp',
+      alt: 'Helloween live photo by Jenny Waller',
+      title: 'Helloween',
+      category: 'music',
+      imgText: 'Helloween, Partille Arena, december 2017'
     },
   ];
   export default images;

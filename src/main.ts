@@ -182,8 +182,9 @@ function currentImageDisplay(index: number): void {
   if (imageBox && allImages) {
     const image = allImages[index].querySelector('img');
     const imageUrl = image?.getAttribute('src');
+    const imageUrl1440 = images[index]['urlImg1440'];
     if (imageUrl) {
-      imageBox.style.background = `url(${imageUrl}) center/cover no-repeat`;
+      imageBox.style.background = `url(${imageUrl1440}) center/cover no-repeat`;
       updateImgText(index);
     }
   }
