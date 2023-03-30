@@ -6,8 +6,8 @@ let imgSection = renderImgSection();
 const aboutSection = `
 <section class="about-section">
   <div class="about-upper">
-    <h1>WELCOME!</h1>
-      <p>To my image gallery.<br>
+    <h1>WELCOME STRANGER!</h1>
+      <p>this is my image gallery.<br>
       Project made in the course Work Methology for programmers at MedieInstitutet February 2023.
       </p>
   </div>
